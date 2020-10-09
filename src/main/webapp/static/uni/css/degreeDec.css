@@ -1,0 +1,88 @@
+@charset "ISO-8859-1";
+
+body, html{
+	height:100%;
+	margin:0;
+}
+
+h1 {
+	margin-left:50px;
+}
+
+h3 {
+	margin-left:20px;
+}
+
+.background {
+    background-image: url("../img/b2.jpg");
+	margin-top:-35px;
+	height:100%;
+    background-position:center;
+	background-repeat:no-repeat;
+	background-size:cover;
+  
+}
+
+p{
+	color:black;
+	margin-left:20px;
+	font-size:20px;
+}
+
+.search-container {
+  float: right;
+  color:white;
+  margin-right:30px;
+}
+::placeholder { 
+  color: white; 
+} 
+input[type=text][id="b"] {
+  width:210px;
+  border-radius:2px;
+  padding: 10px;
+  margin-top: 2px;
+  font-size: 17px;
+  color:white;
+  border: none;
+  background:rgb(105,105,105);
+}
+
+.search-container button {
+  float: right;
+  height:40px;
+  padding: 6px 10px;
+  margin-top: 2px;
+  margin-bottom:1px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .search-container {
+    float: none;
+  }
+a, input[type=text], .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+}	
+
+	
+a {
+	
+	font-size:25px;
+	colour:gray;
+	margin-left:550px;
+}
+

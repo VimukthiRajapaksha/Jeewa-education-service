@@ -1,0 +1,30 @@
+@charset "ISO-8859-1";
+
+body, html{
+	height:145%;
+	margin:0;
+}
+
+.background{
+	background-image:url("../img/gsea.jpg");
+	margin-top:-35px;
+	height:145%;
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size:cover;
+
+h1 {
+	
+	font-family: 'Pacifico', cursive;
+	colour:blue;
+	font-size:500px;	
+}
+
+
+a {
+	
+	color:  black;
+	margin: 20px 0 12px;
+	font-size:30px;
+	padding: 0;
+}
