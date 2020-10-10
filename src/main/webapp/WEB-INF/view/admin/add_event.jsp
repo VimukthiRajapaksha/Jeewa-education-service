@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Degree Form</title>
+<title>Event Management</title>
 
 <!-- Custom fonts for this template-->
 <link href="../static/admin/vendor/fontawesome-free/css/all.min.css"
@@ -48,29 +48,6 @@
 			<hr class="sidebar-divider my-0">
 
 			<li class="nav-item"><a class="nav-link" href="/admin/dashboard">
-					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
-			</a></li>
-			<li class="nav-item"><a class="nav-link"
-				href="/degrees/add"> <i
-					class="fas fa-fw fa-tachometer-alt"></i> <span>Add Degrees</span></a></li>
-			<li class="nav-item"><a class="nav-link"
-				href="/degrees"> <i
-					class="fas fa-fw fa-tachometer-alt"></i> <span>List Degrees</span></a>
-			</li>
-			<li class="nav-item"><a class="nav-link"
-				href="/events/add"> <i class="fas fa-fw fa-tachometer-alt"></i>
-					<span>Add Events</span></a></li>
-			<li class="nav-item"><a class="nav-link"
-				href="/events"> <i
-					class="fas fa-fw fa-tachometer-alt"></i> <span>List Events</span></a></li>
-			</li>
-			<li class="nav-item"><a class="nav-link"
-				href="/universities/add"> <i class="fas fa-fw fa-tachometer-alt"></i>
-					<span>Add Universities</span></a></li>
-			<li class="nav-item"><a class="nav-link"
-				href="/universities"> <i
-					class="fas fa-fw fa-tachometer-alt"></i> <span>List Universities</span></a></li>
-			</li><li class="nav-item"><a class="nav-link" href="/admin/dashboard">
 					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
 			</a></li>
 			<li class="nav-item"><a class="nav-link"

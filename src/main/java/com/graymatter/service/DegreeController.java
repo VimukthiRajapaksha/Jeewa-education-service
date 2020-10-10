@@ -36,7 +36,8 @@ public class DegreeController {
 	}
 
 	@GetMapping
-	public String getAll(@RequestParam(required = false) String name, @RequestParam(required = false) Integer uniId, Model model) {
+	public String getAll(@RequestParam(required = false) String name, @RequestParam(required = false) Integer uniId,
+			Model model) {
 		System.out.println(" name: " + name);
 		try {
 			if (name != null && !name.isEmpty()) {
@@ -48,7 +49,7 @@ public class DegreeController {
 				} else {
 					model.addAttribute(CommonUtil.ERROR_MESSAGE, "No degree found for name:" + name);
 				}
-			} else if(uniId != null) {
+			} else if (uniId != null) {
 				List<Degree> degreeList = this.degreeService.findByUniversityId(uniId);
 				degreeList.forEach(System.out::println);
 
@@ -91,7 +92,8 @@ public class DegreeController {
 			Optional<Degree> optionalDegree = this.degreeService.add(degree);
 			if (optionalDegree.isPresent()) {
 				// save successful
-				model.addAttribute(CommonUtil.SUCCESS_MESSAGE, optionalDegree.get().getName() + " degree has saved successfully !");
+				model.addAttribute(CommonUtil.SUCCESS_MESSAGE,
+						optionalDegree.get().getName() + " degree has saved successfully !");
 				model.addAttribute("degree_id", optionalDegree.get().getId());
 			} else {
 				// save error
@@ -112,7 +114,9 @@ public class DegreeController {
 			Optional<Degree> optionalDegree = this.degreeService.update(degree);
 			if (optionalDegree.isPresent()) {
 				// save successful
-				model.addAttribute(CommonUtil.SUCCESS_MESSAGE, optionalDegree.get().getName() + " degree has updated successfully !");
+				model.addAttribute(CommonUtil.SUCCESS_MESSAGE,
+						optionalDegree.get().getName() + " degree has updated successfully !");
+				model.addAttribute("degree", optionalDegree.get());
 			} else {
 				// save error
 				model.addAttribute(CommonUtil.ERROR_MESSAGE, "ERROR : degree has not updated successfully !");
@@ -121,7 +125,7 @@ public class DegreeController {
 			e.printStackTrace();
 			model.addAttribute(CommonUtil.ERROR_MESSAGE, "ERROR : degree has not updated successfully !");
 		}
-		return "index";
+		return "admin/update_degree";
 	}
 
 	@GetMapping(value = "/delete/{id}")
@@ -135,6 +139,7 @@ public class DegreeController {
 					// delete successful
 					model.addAttribute(CommonUtil.SUCCESS_MESSAGE,
 							optionalDegree.get().getName() + " University has deleted successfully !");
+					model.addAttribute("degreeList", this.degreeService.findAll());
 				} else {
 					// save error
 					model.addAttribute(CommonUtil.ERROR_MESSAGE, "ERROR : university has not deleted. Try again!");
@@ -149,7 +154,7 @@ public class DegreeController {
 		}
 		return "admin/view_degrees";
 	}
-	
+
 	/**
 	 * For UI
 	 */
@@ -158,22 +163,22 @@ public class DegreeController {
 		System.out.println(this.universityService.findAll());
 		model.addAttribute("universityList", this.universityService.findAll());
 		model.addAttribute("degree", new Degree());
-		
+
 		return "admin/add_degree";
 	}
-	
+
 	@GetMapping(value = "/update/{id}")
 	public String updateDegreeUI(@PathVariable(value = "id", required = false) int id, Model model) {
 		Optional<Degree> optionalDegree = this.degreeService.findById(id);
 		if (optionalDegree.isPresent()) {
 			// Valid university id
 			model.addAttribute("degree", optionalDegree.get());
-			model.addAttribute("universityList", this.universityService.findAll());			
+			model.addAttribute("universityList", this.universityService.findAll());
 		} else {
 			// Invalid University id
 			model.addAttribute(CommonUtil.ERROR_MESSAGE, "Degree not found! Invalid ID:" + id);
 		}
-		
-		return "admin/add_degree";
+
+		return "admin/update_degree";
 	}
 }

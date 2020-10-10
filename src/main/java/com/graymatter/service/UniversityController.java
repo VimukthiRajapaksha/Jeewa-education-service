@@ -135,6 +135,7 @@ public class UniversityController {
 					// delete successful
 					model.addAttribute(CommonUtil.SUCCESS_MESSAGE,
 							optionalUni.get().getName() + " University has deleted successfully !");
+					model.addAttribute("universityList", this.universityService.findAll());
 				} else {
 					// save error
 					model.addAttribute(CommonUtil.ERROR_MESSAGE, "ERROR : university has not deleted. Try again!");

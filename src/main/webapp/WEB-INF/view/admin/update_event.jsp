@@ -9,17 +9,17 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Degree Management</title>
+<title>Event Management</title>
 
 <!-- Custom fonts for this template-->
-<link href="../static/admin/vendor/fontawesome-free/css/all.min.css"
+<link href="/static/admin/vendor/fontawesome-free/css/all.min.css"
 	rel="stylesheet" type="text/css">
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
 
 <!-- Custom styles for this template-->
-<link href="../static/admin/css/sb-admin-2.min.css" rel="stylesheet">
+<link href="/static/admin/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 <body>
@@ -294,7 +294,7 @@
 					<div th:if="${success_message != null}" class="mb-2 row">
 						<div class="alert alert-success col-10" role="alert" th:text="${success_message}"></div>
 						<div class="col">
-							<a th:href="@{'/reports/degrees/'+${degree_id}}" class="btn btn-outline-primary">
+							<a th:href="@{'/reports/events/'+${event_id}}" class="btn btn-outline-primary">
 								<i class="far fa-file-pdf fa-2x"></i> Download 
 							</a>
 						</div>
@@ -305,49 +305,72 @@
 					</div>
 
 					<!-- Page Heading -->
-					<h1 class="h3 mb-2 text-gray-800">Add Degree</h1>
+					<h1 class="h3 mb-2 text-gray-800">Update Event</h1>
 					
-					<form class="mt-4" th:action="@{/degrees}" th:object="${degree}"
-						method="post">
+					<form class="mt-4" th:action="@{/events}" th:object="${event}"
+						method="PUT">
 
-						<div class="form-row">
-							<div class="col-md-6 mb-3">
-								<label for="validationTooltip02">Degree Name</label> <input
+						<div class="form-row py-3">
+							<div class="col-md-6">
+								<label for="validationTooltip02">Event Name</label> <input
 									type="text" th:field="*{name}" class="form-control"
-									id="validationTooltip02" placeholder="degree name" />
+									id="validationTooltip02" placeholder="event name" />
 							</div>
 
-							<div class="col-md-6 mb-3">
-								<label for="validationTooltip02">Duration (Years)</label> <input
-									type="text" th:field="*{duration}" class="form-control"
-									id="validationTooltip02" placeholder="duration" />
+							<div class="col-md-6">
+								<label for="validationTooltip02">Venue</label> <input
+									type="text" th:field="*{venue}" class="form-control"
+									id="validationTooltip02" placeholder="venue" />
 							</div>
 						</div>
 
-						<div class="form-row mt-4">
-							<div class="col-md-6 mb-3">
+						<div class="form-row py-3">
+							<div class="col-md-6">
+								<label for="validationTooltip02">Start Date</label> <input
+									type="date" th:field="*{startDate}" class="form-control"
+									id="validationTooltip02" />
+							</div>
+
+							<div class="col-md-6">
+								<label for="validationTooltip02">Start Time</label> <input
+									type="time" th:field="*{startTime}" class="form-control"
+									id="validationTooltip02" placeholder="venue" />
+							</div>
+						</div>
+
+						<div class="form-row py-3">
+							<div class="col-md-6">
+								<label for="validationTooltip02">End Date</label> <input
+									type="date" th:field="*{endDate}" class="form-control"
+									id="validationTooltip02" />
+							</div>
+
+							<div class="col-md-6">
+								<label for="validationTooltip02">End Time</label> <input
+									type="time" th:field="*{endTime}" class="form-control"
+									id="validationTooltip02" placeholder="venue" />
+							</div>
+						</div>
+
+						<div class="form-row py-3">
+							<div class="col-md-6">
 								<label for="validationTooltip01">University Name</label> <select
 									th:field="*{university}" class="form-control">
 									<option th:each="uni : ${universityList}" th:value="${uni.id}"
 										th:text="${uni.name}" />
 								</select>
 							</div>
-							<div class="col-md-6 mb-3">
-								<label for="validationTooltip02">Fee(LKR)</label> <input
-									type="text" th:field="*{fee}" class="form-control"
-									id="validationTooltip02" placeholder="fee" />
-							</div>
 						</div>
 
-						<div class="form-row">
-							<div class="col-md-12 mb-3 mt-4">
+						<div class="form-row py-3">
+							<div class="col-md-12 mb-3">
 								<label for="validationTooltip02">Description</label>
 								<textarea class="form-control" placeholder="description"
 									th:field="*{description}" rows="5" cols="30" />
 							</div>
 						</div>
 						<div class="d-flex justify-content-end">
-							<a href="#" class="mx-2 btn btn-light"> 
+							<a href="/events" class="mx-2 btn btn-light"> 
 								<i class="fas fa-times"></i> Cancel
 							</a>
 							
@@ -410,23 +433,23 @@
 	</div>
 
 	<!-- Bootstrap core JavaScript-->
-	<script src="../adminAssets/vendor/jquery/jquery.min.js"></script>
+	<script src="/static/admin/vendor/jquery/jquery.min.js"></script>
 	<script
-		src="../adminAssets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		src="/static/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 	<!-- Core plugin JavaScript-->
-	<script src="../adminAssets/vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="/static/admin/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 	<!-- Custom scripts for all pages-->
-	<script src="../adminAssets/js/sb-admin-2.min.js"></script>
+	<script src="/static/admin/js/sb-admin-2.min.js"></script>
 
 	<!-- Page level plugins -->
-	<script src="../adminAssets/vendor/datatables/jquery.dataTables.min.js"></script>
+	<script src="/static/admin/vendor/datatables/jquery.dataTables.min.js"></script>
 	<script
-		src="../adminAssets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+		src="/static/admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
 	<!-- Page level custom scripts -->
-	<script src="../adminAssets/js/demo/datatables-demo.js"></script>
+	<script src="/static/admin/js/demo/datatables-demo.js"></script>
 
 
 </body>

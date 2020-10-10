@@ -116,6 +116,7 @@ public class EventController {
 				// save successful
 				model.addAttribute(CommonUtil.SUCCESS_MESSAGE,
 						optionalEvent.get().getName() + " event has updated successfully !");
+				model.addAttribute("event",optionalEvent.get());
 			} else {
 				// save error
 				model.addAttribute(CommonUtil.ERROR_MESSAGE, "ERROR : event has not updated successfully !");
@@ -124,7 +125,7 @@ public class EventController {
 			e.printStackTrace();
 			model.addAttribute(CommonUtil.ERROR_MESSAGE, "ERROR : event has not updated successfully !");
 		}
-		return "index";
+		return "admin/update_event";
 	}
 
 	@GetMapping(value = "/delete/{id}")
@@ -138,6 +139,7 @@ public class EventController {
 					// delete successful
 					model.addAttribute(CommonUtil.SUCCESS_MESSAGE,
 							optionalEvent.get().getName() + " event has deleted successfully !");
+					model.addAttribute("eventList", this.eventService.findAll());
 				} else {
 					// save error
 					model.addAttribute(CommonUtil.ERROR_MESSAGE, "ERROR : event has not deleted. Try again!");
@@ -148,7 +150,7 @@ public class EventController {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			model.addAttribute(CommonUtil.ERROR_MESSAGE, "ERROR : event has not updated successfully !");
+			model.addAttribute(CommonUtil.ERROR_MESSAGE, "ERROR : event has not deleted successfully !");
 		}
 		return "admin/view_events";
 	}
@@ -177,6 +179,6 @@ public class EventController {
 			model.addAttribute(CommonUtil.ERROR_MESSAGE, "Degree not found! Invalid ID:" + id);
 		}
 
-		return "admin/add_degree";
+		return "admin/update_event";
 	}
 }

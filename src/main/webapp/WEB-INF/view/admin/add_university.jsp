@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Degree Form</title>
+<title>University Management</title>
 
 <!-- Custom fonts for this template-->
 <link href="../static/admin/vendor/fontawesome-free/css/all.min.css"
