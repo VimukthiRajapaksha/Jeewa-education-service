@@ -68,12 +68,20 @@ public class UniversityService implements IUniversityService {
 	}
 
 	public University getUniversityFromDTO(UniversityDTO universityDTO) throws IOException {
-		University university = new University();
-		university.setId(universityDTO.getId());
+		University university = null;
+		if (universityDTO != null && universityDTO.getId() != 0) {
+			university = findById(universityDTO.getId()).get();
+		} else {
+			university = new University();			
+		}
+		
+		//university.setId(universityDTO.getId());
 		university.setName(universityDTO.getName());
 		university.setCountry(universityDTO.getCountry());
 		university.setDescription(universityDTO.getDescription());
-		university.setImage(Base64.getEncoder().encodeToString(universityDTO.getImage().getBytes()));
+		if (universityDTO.getImage() != null && !universityDTO.getImage().isEmpty()) {
+			university.setImage(Base64.getEncoder().encodeToString(universityDTO.getImage().getBytes()));
+		}
 
 		return university;
 	}

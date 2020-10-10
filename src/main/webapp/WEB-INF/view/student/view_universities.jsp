@@ -44,24 +44,15 @@
 					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
 			</a></li>
 			<li class="nav-item"><a class="nav-link"
-				href="/degrees/add"> <i
-					class="fas fa-fw fa-tachometer-alt"></i> <span>Add Degrees</span></a></li>
-			<li class="nav-item"><a class="nav-link"
-				href="/degrees"> <i
+				href="/students/degrees"> <i
 					class="fas fa-fw fa-tachometer-alt"></i> <span>List Degrees</span></a>
 			</li>
 			<li class="nav-item"><a class="nav-link"
-				href="/events/add"> <i class="fas fa-fw fa-tachometer-alt"></i>
-					<span>Add Events</span></a></li>
-			<li class="nav-item"><a class="nav-link"
-				href="/events"> <i
+				href="/students/events"> <i
 					class="fas fa-fw fa-tachometer-alt"></i> <span>List Events</span></a></li>
 			</li>
 			<li class="nav-item"><a class="nav-link"
-				href="/universities/add"> <i class="fas fa-fw fa-tachometer-alt"></i>
-					<span>Add Universities</span></a></li>
-			<li class="nav-item"><a class="nav-link"
-				href="/universities"> <i
+				href="/students/universities"> <i
 					class="fas fa-fw fa-tachometer-alt"></i> <span>List Universities</span></a></li>
 			</li>
       
@@ -297,16 +288,6 @@
               				<p class="card-text" th:text="${university.description}" style="overflow: hidden;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;">
               				</p>
               				
-              				<div class="row justify-content-between">
-              				<a th:href="@{'/universities/update/'+${university.id}}" class="btn btn-info btn-sm">
-                      			<i class="fas fa-edit"></i>
-                    			<span class="text">Update</span>
-                  			</a>
-                  			<a th:href="@{'/universities/delete/'+${university.id}}" class="btn btn-danger btn-sm">
-	                            <i class="fas fa-trash"></i>
-    	                      <span class="text">Delete</span>
-        	                </a>
-        	                </div>
             			</div>
           			</div>
         		</div>

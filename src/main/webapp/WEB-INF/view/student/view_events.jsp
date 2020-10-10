@@ -44,24 +44,15 @@
 					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
 			</a></li>
 			<li class="nav-item"><a class="nav-link"
-				href="/degrees/add"> <i
-					class="fas fa-fw fa-tachometer-alt"></i> <span>Add Degrees</span></a></li>
-			<li class="nav-item"><a class="nav-link"
-				href="/degrees"> <i
+				href="/students/degrees"> <i
 					class="fas fa-fw fa-tachometer-alt"></i> <span>List Degrees</span></a>
 			</li>
 			<li class="nav-item"><a class="nav-link"
-				href="/events/add"> <i class="fas fa-fw fa-tachometer-alt"></i>
-					<span>Add Events</span></a></li>
-			<li class="nav-item"><a class="nav-link"
-				href="/events"> <i
+				href="/students/events"> <i
 					class="fas fa-fw fa-tachometer-alt"></i> <span>List Events</span></a></li>
 			</li>
 			<li class="nav-item"><a class="nav-link"
-				href="/universities/add"> <i class="fas fa-fw fa-tachometer-alt"></i>
-					<span>Add Universities</span></a></li>
-			<li class="nav-item"><a class="nav-link"
-				href="/universities"> <i
+				href="/students/universities"> <i
 					class="fas fa-fw fa-tachometer-alt"></i> <span>List Universities</span></a></li>
 			</li>
       
@@ -305,7 +296,8 @@
               
             </div>
             <div class="card-body">
-				<div class="row row-cols-4 justify-content-around">
+		<div class="row p-5">
+			<div class="row row-cols-4 justify-content-around">
           			<div class="card col m-3" th:each="event : ${eventList}">
             			<div class="card-img-top p-2 bg-gradient-primary" style="height: 100px; text-align:center;margin-top: auto;font-size: 50px;"><b>E</b></div>
             			<div class="card-body">
@@ -337,19 +329,10 @@
               				<p class="card-text" th:text="${event.description}" style="overflow: hidden;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;">
               				</p>
               				
-              				<div class="row justify-content-between">
-              				<a th:href="@{'/events/update/'+${event.id}}" class="btn btn-info btn-sm">
-                      			<i class="fas fa-edit"></i>
-                    			<span class="text">Update</span>
-                  			</a>
-                  			<a th:href="@{'/events/delete/'+${event.id}}" class="btn btn-danger btn-sm">
-	                            <i class="fas fa-trash"></i>
-    	                      <span class="text">Delete</span>
-        	                </a>
-        	                </div>
             			</div>
           			</div>
         		</div>
+		</div>
             </div>
           </div>
 

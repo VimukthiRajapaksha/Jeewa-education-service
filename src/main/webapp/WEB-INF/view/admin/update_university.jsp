@@ -303,8 +303,10 @@
 					<!-- Page Heading -->
 					<h1 class="h3 mb-2 text-gray-800">Update University</h1>
 
-					<form class="mt-4" th:action="@{/universities}" th:object="${university}"
-						method="PUT" enctype="multipart/form-data">
+					<form class="mt-4" th:action="@{/universities/update}" th:object="${university}"
+						method="POST" enctype="multipart/form-data">
+
+						<input type="hidden" th:field="*{id}" value="${university.id}" />
 
 						<div class="form-row">
 							<div class="col-md-6 my-2">

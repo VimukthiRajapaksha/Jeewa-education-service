@@ -24,6 +24,7 @@ public class University {
 	private String country;
 	@Column(length = 2000)
 	private String description;
+	@Column(length = 100000)
 	private String image;
 
 	/**

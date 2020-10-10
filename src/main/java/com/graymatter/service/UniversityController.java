@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -99,12 +98,13 @@ public class UniversityController {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			model.addAttribute("university", new UniversityDTO());
 			model.addAttribute(CommonUtil.ERROR_MESSAGE, "ERROR : university has not saved successfully !");
 		}
 		return "admin/add_university";
 	}
 
-	@PutMapping
+	@PostMapping(value = "/update")
 	public String update(@ModelAttribute UniversityDTO university, Model model) {
 		System.out.println(university);
 		try {
@@ -114,12 +114,15 @@ public class UniversityController {
 			if (updatedUniversity != null && university.getId() == updatedUniversity.getId()) {
 				// save successful
 				model.addAttribute(CommonUtil.SUCCESS_MESSAGE, updatedUniversity.getName() + " University has updated successfully !");
+				model.addAttribute("university", updatedUniversity);
 			} else {
 				// save error
+				model.addAttribute("university", new UniversityDTO());
 				model.addAttribute(CommonUtil.ERROR_MESSAGE, "ERROR : university has not updated successfully !");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			model.addAttribute("university", new UniversityDTO());
 			model.addAttribute(CommonUtil.ERROR_MESSAGE, "ERROR : university has not updated successfully !");
 		}
 		return "admin/update_university";

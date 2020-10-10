@@ -144,12 +144,17 @@
 							</div></li>
 
 						<!-- Nav Item - Alerts -->
-						<li class="nav-item dropdown no-arrow mx-1"><a
-							class="nav-link dropdown-toggle" href="#" id="alertsDropdown"
-							role="button" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false"> <i class="fas fa-bell fa-fw"></i> <!-- Counter - Alerts -->
-								<span class="badge badge-danger badge-counter" th:text="${#lists.size(eventList)}"> </span>
-						</a> <!-- Dropdown - Alerts -->
+						<li class="nav-item dropdown no-arrow mx-1">
+							<a
+								class="nav-link dropdown-toggle" href="#" id="alertsDropdown"
+								role="button" data-toggle="dropdown" aria-haspopup="true"
+								aria-expanded="false">
+								
+								<i class="fas fa-bell fa-fw"></i> <!-- Counter - Alerts -->
+								<span th:if="${eventList != null}">
+									<span class="badge badge-danger badge-counter" th:text="${#lists.size(eventList)}"> </span>
+								</span>
+							</a> <!-- Dropdown - Alerts -->
 							<div
 								class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
 								aria-labelledby="alertsDropdown">
@@ -159,7 +164,7 @@
 								<div th:if="${eventList != null}">
 									<div th:each="event : ${eventList}">
 										<a class="dropdown-item d-flex align-items-center" 
-											th:href="@{'/students/events?eventId='+${event.id}+'&studentId=1'}">
+											th:href="@{'/students/apply_events?eventId='+${event.id}+'&studentId=1'}">
 											<div class="mr-3">
 												<div class="icon-circle bg-primary">
 													<i class="far fa-calendar text-white"></i>
@@ -179,7 +184,7 @@
 								<div th:if="${appliedEventList != null}">
 									<div th:each="event : ${appliedEventList}">
 										<a class="dropdown-item d-flex align-items-center" 
-											th:href="@{'/students/events?eventId='+${event.id}+'&studentId=1'}">
+											href="#">
 											<div class="mr-3">
 												<div class="icon-circle bg-primary">
 													<i class="far fa-calendar-check text-white"></i>
@@ -308,51 +313,38 @@
 					</div>
 
 					<div th:if="${error_message != null}" class="mb-2 row">
-						<div class="alert alert-error col" role="alert"
+						<div class="alert alert-danger col" role="alert"
 							th:text="${error_message}"></div>
 					</div>
 
 					<!-- Page Body Start-->
 					<div class="container-fluid">
 
-						<div>
-							<div class="row">
-								<div class="col p-5">
-									<div class="row p-3">
+							<div class="row p-3 m-3">
+								<div class="col">
+									<div class="row">
 										<h3 style="font-size: 50px;" th:text="${university.name}"></h3>
 									</div>
 									<div class="row p-3">
-										<p>University of Sydney is an Australian public research
-											university in Sydney. Founded in 1850, it is Australias'
-											first university and regarded as one of the world's leading
-											universities. Campus is ranked in the top 10 of the world's
-											most beautiful universities. This has nine faculties and
-											university schools, through which it offers bachelor, master
-											and doctoral degrees. World class teaching and learning and a
-											vibrant campus life, it is a place where students can attain
-											widely recorganized and respected qualifications. This
-											university offers Australia's broadest range of displine and
-											its' research focuses on finding solutions to society's
-											biggest challenges.</p>
+										<p th:text="${university.description}"></p>
 									</div>
 								</div>
-								<div class="col p-5 my-3">
+								<div class="col">
 									<div class="row p-3"></div>
-									<div class="row p-3">
+									<div class="row p-3 mr-3">
 										<img th:src="@{'data:image/png;base64,'+${university.image}}"
 											height="250" width="500" />
 									</div>
 								</div>
 							</div>
-						</div>
 
 
-						<div class="row m-2 border rounded">
-							<div class="row p-5 w-100">
-								<div class="col-8">
+						<div class="border rounded">
+							<div class="row p-3">
+								<div class="col">
 									<h4>Degree Programs</h4>
 								</div>
-								<div class="col d-flex">
+								<div class="col-3 d-flex">
 									<form
 										class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
 										<div class="input-group">
@@ -369,8 +361,7 @@
 									</form>
 								</div>
 							</div>
-							<div class="row p-5">
-								<div class="row row-cols-4 justify-content-around">
+							<div class="row row-cols-4 justify-content-around">
 									<div class="card col m-3" th:each="degree : ${degreeList}">
 										<div class="card-img-top p-2 bg-gradient-primary"
 											style="height: 100px; text-align: center; margin-top: auto; font-size: 50px;">
@@ -395,7 +386,6 @@
 											</a>
 										</div>
 									</div>
-								</div>
 							</div>
 						</div>
 

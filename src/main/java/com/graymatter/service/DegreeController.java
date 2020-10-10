@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -106,7 +105,7 @@ public class DegreeController {
 		return "admin/add_degree";
 	}
 
-	@PutMapping
+	@PostMapping(value = "/update")
 	public String update(@ModelAttribute Degree degree, Model model) {
 		System.out.println(degree);
 		try {

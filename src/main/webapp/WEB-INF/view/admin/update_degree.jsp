@@ -51,26 +51,26 @@
 			<li class="nav-item"><a class="nav-link" href="/admin/dashboard">
 					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
 			</a></li>
-			<li class="nav-item"><a class="nav-link"
-				href="/degrees/add"> <i
-					class="fas fa-fw fa-tachometer-alt"></i> <span>Add Degrees</span></a></li>
-			<li class="nav-item"><a class="nav-link"
-				href="/degrees"> <i
+			<li class="nav-item"><a class="nav-link" href="/degrees/add">
+					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Add
+						Degrees</span>
+			</a></li>
+			<li class="nav-item"><a class="nav-link" href="/degrees"> <i
 					class="fas fa-fw fa-tachometer-alt"></i> <span>List Degrees</span></a>
 			</li>
-			<li class="nav-item"><a class="nav-link"
-				href="/events/add"> <i class="fas fa-fw fa-tachometer-alt"></i>
-					<span>Add Events</span></a></li>
-			<li class="nav-item"><a class="nav-link"
-				href="/events"> <i
+			<li class="nav-item"><a class="nav-link" href="/events/add">
+					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Add Events</span>
+			</a></li>
+			<li class="nav-item"><a class="nav-link" href="/events"> <i
 					class="fas fa-fw fa-tachometer-alt"></i> <span>List Events</span></a></li>
 			</li>
 			<li class="nav-item"><a class="nav-link"
 				href="/universities/add"> <i class="fas fa-fw fa-tachometer-alt"></i>
 					<span>Add Universities</span></a></li>
-			<li class="nav-item"><a class="nav-link"
-				href="/universities"> <i
-					class="fas fa-fw fa-tachometer-alt"></i> <span>List Universities</span></a></li>
+			<li class="nav-item"><a class="nav-link" href="/universities">
+					<i class="fas fa-fw fa-tachometer-alt"></i> <span>List
+						Universities</span>
+			</a></li>
 			</li>
 
 			<!-- Divider -->
@@ -293,28 +293,28 @@
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
 					<div th:if="${success_message != null}" class="mb-2 row">
-						<div class="alert alert-success col" role="alert" th:text="${success_message}"></div>
+						<div class="alert alert-success col" role="alert"
+							th:text="${success_message}"></div>
 					</div>
-					
+
 					<div th:if="${error_message != null}" class="mb-2 row">
-						<div class="alert alert-danger col" role="alert" th:text="${error_message}"></div>
+						<div class="alert alert-danger col" role="alert"
+							th:text="${error_message}"></div>
 					</div>
 
 					<!-- Page Heading -->
 					<h1 class="h3 mb-2 text-gray-800">Degree Management</h1>
 
-					<form class="mt-4" th:action="@{/degrees}" th:object="${degree}"
-						method="PUT">
+					<form class="mt-4" th:action="@{/degrees/update}"
+						th:object="${degree}" method="POST">
+
+						<input type="hidden" th:field="*{id}" value="${degree.id}" />
 
 						<div class="form-row">
 							<div class="col-md-6 mb-3">
-								<label for="validationTooltip02">Degree Name</label> 
-								<input
-									type="text"
-									th:field="*{name}"
-									class="form-control"
-									id="validationTooltip02"
-									value="${degree.name}" />
+								<label for="validationTooltip02">Degree Name</label> <input
+									type="text" th:field="*{name}" class="form-control"
+									id="validationTooltip02" value="${degree.name}" />
 							</div>
 
 							<div class="col-md-6 mb-3">
@@ -372,7 +372,7 @@
 			<!-- End of Footer -->
 		</div>
 		<!-- End of Main Content -->
-		
+
 	</div>
 
 	<!-- End of Content Wrapper -->
@@ -409,8 +409,7 @@
 
 	<!-- Bootstrap core JavaScript-->
 	<script src="/static/admin/vendor/jquery/jquery.min.js"></script>
-	<script
-		src="/static/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="/static/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 	<!-- Core plugin JavaScript-->
 	<script src="/static/admin/vendor/jquery-easing/jquery.easing.min.js"></script>

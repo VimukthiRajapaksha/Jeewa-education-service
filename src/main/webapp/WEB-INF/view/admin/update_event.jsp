@@ -307,8 +307,10 @@
 					<!-- Page Heading -->
 					<h1 class="h3 mb-2 text-gray-800">Update Event</h1>
 					
-					<form class="mt-4" th:action="@{/events}" th:object="${event}"
-						method="PUT">
+					<form class="mt-4" th:action="@{/events/update}" th:object="${event}"
+						method="POST">
+
+						<input type="hidden" th:field="*{id}" value="${event.id}" />
 
 						<div class="form-row py-3">
 							<div class="col-md-6">

@@ -1,8 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%> 
-	
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,14 +8,14 @@
   <meta name="description" content="">
   <meta name="author" content="">
   
-<title>Degree Table</title>
+<title>Degree Management</title>
 
  <!-- Custom fonts for this template-->
-  <link href="../static/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="/static/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="../static/admin/css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="/static/admin/css/sb-admin-2.min.css" rel="stylesheet">
   
 </head>
 <body>
@@ -45,32 +40,21 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item">
-        <a class="nav-link" href="/admin/dashboard">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
-      </li>
-	  <li class="nav-item">
-        <a class="nav-link" href="/admin/degree_list">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Add Degrees</span></a>
-      </li>
-	  <li class="nav-item">
-        <a class="nav-link" href="/admin/degree_table">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>List Degrees</span></a>
-      </li>
-	  <li class="nav-item">
-        <a class="nav-link" href="/admin/event_list">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Add Events</span></a>
-      </li>
-	  <li class="nav-item">
-        <a class="nav-link" href="/admin/event_table">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>List Events</span></a>
-      </li>
-      </li>
+      <li class="nav-item"><a class="nav-link" href="/admin/dashboard">
+					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
+			</a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="/students/degrees"> <i
+					class="fas fa-fw fa-tachometer-alt"></i> <span>List Degrees</span></a>
+			</li>
+			<li class="nav-item"><a class="nav-link"
+				href="/students/events"> <i
+					class="fas fa-fw fa-tachometer-alt"></i> <span>List Events</span></a></li>
+			</li>
+			<li class="nav-item"><a class="nav-link"
+				href="/students/universities"> <i
+					class="fas fa-fw fa-tachometer-alt"></i> <span>List Universities</span></a></li>
+			</li>
       
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -277,71 +261,57 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
+			<div th:if="${success_message != null}" class="mb-2 row">
+				<div class="alert alert-success col" role="alert" th:text="${success_message}"></div>
+			</div>
+					
+			<div th:if="${error_message != null}" class="mb-2 row">
+				<div class="alert alert-error col" role="alert" th:text="${error_message}"></div>
+			</div>
+
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">Degree Management</h1>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Degree Details</h6>
+              
+              <div class="row w-100">
+			<div class="col-8">
+				<h6 class="mt-2 font-weight-bold text-primary">Degree Details</h6>
+			</div>
+			<div class="col d-flex">
+				<form th:action="@{/degrees}" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            		<div class="input-group">
+              			<input type="text" th:name="name" class="form-control bg-light border-0 small" placeholder="Search degree..." aria-label="Search" aria-describedby="basic-addon2">
+              			<div class="input-group-append">
+                			<button class="btn btn-primary" type="submit">
+                  				<i class="fas fa-search fa-sm"></i>
+                			</button>
+              			</div>
+            		</div>
+          		</form>
+			</div>
+		</div>
+              
             </div>
             <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>Id</th>
-                      <th>University Name</th>
-                      <th>Degree Name</th>
-                      <th>Duration(Semesters)</th>
-                      <th>Fee(Lakhs)</th>
-                      <th>Details</th>
-					  <th>Update</th>
-					  <th>Delete</th>
-                    </tr>
-                  </thead>
-                  <!-- <tfoot>
-                    <tr>
-                      <th>Id</th>
-                      <th>University Name</th>
-                      <th>Degree Name</th>
-                      <th>Duration(Years)</th>
-                      <th>Fee(Lakhs)</th>
-                      <th>Details</th>
-					  <th>Update</th>
-					  <th>Delete</th>
-                    </tr>
-                  </tfoot>  -->
-                  <tbody>
-                   <c:forEach var="degree" items="${degreeList}">
-                
-                    <tr>
-                      <td>${degree.id}</td>
-                      <td>${degree.university.name}</td>
-                     <td>${degree.name}</td>
-                     <td>${degree.duration}</td>
-                     <td>${degree.fee}</td>
-                     <td>${degree.description}</td>
-                      
-                      <td><a href="update_degree?id=${degree.id}" class="btn btn-info btn-icon-splitt">
-                    <span class="icon text-white-50">
-                      <i class="fas fa-edit"></i>
-                    </span>
-                    <span class="text">Update</span>
-                  </a></td>
-                      <td><a href="delete_degree?id=${degree.id}" class="btn btn-danger btn-icon-split">
-                          <span class="icon text-white-50">
-                            <i class="fas fa-trash"></i>
-                          </span>
-                          <span class="text">Delete</span>
-                        </a></td>
-                    </tr>
-                    </c:forEach>  
-                    
-                   
-                  </tbody>
-                </table>
-              </div>
+		<div class="row p-5">
+			<div class="row row-cols-4 justify-content-around">
+          			<div class="card col m-3" th:each="degree : ${degreeList}">
+            			<div class="card-img-top p-2 bg-gradient-primary" style="height: 100px; text-align:center;margin-top: auto;font-size: 50px;"><b>D</b></div>
+            			<div class="card-body">
+            				
+              					<h5 class="card-title text-center" th:text="${degree.name}"></h5>
+              				
+              				<h6 class="card-subtitle mb-2 text-muted text-center" th:text="${degree.fee}"></h6>
+              				<p class="card-text" th:text="${degree.description}" style="overflow: hidden;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;">
+              				</p>
+              				
+            			</div>
+          			</div>
+        		</div>
+		</div>
             </div>
           </div>
 
@@ -392,21 +362,21 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="../adminAssets/vendor/jquery/jquery.min.js"></script>
-  <script src="../adminAssets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/admin/vendor/jquery/jquery.min.js"></script>
+  <script src="/static/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="../adminAssets/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="/static/admin/vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="../adminAssets/js/sb-admin-2.min.js"></script>
+  <script src="/static/admin/js/sb-admin-2.min.js"></script>
 
   <!-- Page level plugins -->
-  <script src="../adminAssets/vendor/datatables/jquery.dataTables.min.js"></script>
-  <script src="../adminAssets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <script src="/static/admin/vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="/static/admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
   <!-- Page level custom scripts -->
-  <script src="../adminAssets/js/demo/datatables-demo.js"></script>
+  <script src="/static/admin/js/demo/datatables-demo.js"></script>
 
 
 </body>
