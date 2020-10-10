@@ -47,23 +47,52 @@
 			<!-- Divider -->
 			<hr class="sidebar-divider my-0">
 
-			<!-- Nav Item - Dashboard -->
 			<li class="nav-item"><a class="nav-link" href="/admin/dashboard">
 					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
 			</a></li>
 			<li class="nav-item"><a class="nav-link"
-				href="/admin/degree_list"> <i
+				href="/degrees/add"> <i
 					class="fas fa-fw fa-tachometer-alt"></i> <span>Add Degrees</span></a></li>
 			<li class="nav-item"><a class="nav-link"
-				href="/admin/degree_table"> <i
+				href="/degrees"> <i
 					class="fas fa-fw fa-tachometer-alt"></i> <span>List Degrees</span></a>
 			</li>
 			<li class="nav-item"><a class="nav-link"
-				href="/admin/event_list"> <i class="fas fa-fw fa-tachometer-alt"></i>
+				href="/events/add"> <i class="fas fa-fw fa-tachometer-alt"></i>
 					<span>Add Events</span></a></li>
 			<li class="nav-item"><a class="nav-link"
-				href="/admin/event_table"> <i
+				href="/events"> <i
 					class="fas fa-fw fa-tachometer-alt"></i> <span>List Events</span></a></li>
+			</li>
+			<li class="nav-item"><a class="nav-link"
+				href="/universities/add"> <i class="fas fa-fw fa-tachometer-alt"></i>
+					<span>Add Universities</span></a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="/universities"> <i
+					class="fas fa-fw fa-tachometer-alt"></i> <span>List Universities</span></a></li>
+			</li><li class="nav-item"><a class="nav-link" href="/admin/dashboard">
+					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
+			</a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="/degrees/add"> <i
+					class="fas fa-fw fa-tachometer-alt"></i> <span>Add Degrees</span></a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="/degrees"> <i
+					class="fas fa-fw fa-tachometer-alt"></i> <span>List Degrees</span></a>
+			</li>
+			<li class="nav-item"><a class="nav-link"
+				href="/events/add"> <i class="fas fa-fw fa-tachometer-alt"></i>
+					<span>Add Events</span></a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="/events"> <i
+					class="fas fa-fw fa-tachometer-alt"></i> <span>List Events</span></a></li>
+			</li>
+			<li class="nav-item"><a class="nav-link"
+				href="/universities/add"> <i class="fas fa-fw fa-tachometer-alt"></i>
+					<span>Add Universities</span></a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="/universities"> <i
+					class="fas fa-fw fa-tachometer-alt"></i> <span>List Universities</span></a></li>
 			</li>
 
 			<!-- Divider -->
