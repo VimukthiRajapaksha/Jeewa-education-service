@@ -83,15 +83,16 @@ public class UniversityController {
 	}
 
 	@PostMapping
-	public String add(@ModelAttribute UniversityDTO universityDto, Model model) {
-		System.out.println(universityDto);
+	public String add(@ModelAttribute UniversityDTO university, Model model) {
+		System.out.println(university);
 		try {
 			// save to database
-			University university = this.universityService
-					.add(this.universityService.getUniversityFromDTO(universityDto));
-			if (university != null && university.getId() >= 0) {
+			University dbUniversity = this.universityService
+					.add(this.universityService.getUniversityFromDTO(university));
+			if (dbUniversity != null && dbUniversity.getId() >= 0) {
 				// save successful
-				model.addAttribute(CommonUtil.SUCCESS_MESSAGE, university.getName() + " University has saved successfully !");
+				model.addAttribute(CommonUtil.SUCCESS_MESSAGE, dbUniversity.getName() + " University has saved successfully !");
+				model.addAttribute("university", dbUniversity);
 			} else {
 				// save error
 				model.addAttribute(CommonUtil.ERROR_MESSAGE, "ERROR : university has not saved successfully !");
@@ -104,13 +105,13 @@ public class UniversityController {
 	}
 
 	@PutMapping
-	public String update(@ModelAttribute UniversityDTO universityDto, Model model) {
-		System.out.println(universityDto);
+	public String update(@ModelAttribute UniversityDTO university, Model model) {
+		System.out.println(university);
 		try {
 			// save to database
 			University updatedUniversity = this.universityService
-					.update(this.universityService.getUniversityFromDTO(universityDto));
-			if (updatedUniversity != null && universityDto.getId() == updatedUniversity.getId()) {
+					.update(this.universityService.getUniversityFromDTO(university));
+			if (updatedUniversity != null && university.getId() == updatedUniversity.getId()) {
 				// save successful
 				model.addAttribute(CommonUtil.SUCCESS_MESSAGE, updatedUniversity.getName() + " University has updated successfully !");
 			} else {
@@ -175,7 +176,7 @@ public class UniversityController {
 	 */
 	@GetMapping(value = "/add")
 	public String addUniversityUI(Model model) {
-		model.addAttribute("university", new University());
+		model.addAttribute("university", new UniversityDTO());
 		return "admin/add_university";
 	}
 	
