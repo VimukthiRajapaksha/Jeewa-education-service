@@ -295,7 +295,7 @@
 					</div>
 					
 					<div th:if="${error_message != null}" class="mb-2 row">
-						<div class="alert alert-error col" role="alert" th:text="${error_message}"></div>
+						<div class="alert alert-danger col" role="alert" th:text="${error_message}"></div>
 					</div>
 
 					<!-- Page Heading -->

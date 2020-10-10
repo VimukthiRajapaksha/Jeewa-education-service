@@ -43,7 +43,7 @@ public class Event {
 	private LocalTime startTime;
 	@DateTimeFormat(pattern = "HH:mm")
 	private LocalTime endTime;
-
+	private String createdTime;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private University university;
@@ -189,6 +189,20 @@ public class Event {
 	 */
 	public void setAppliedStudents(List<Student> appliedStudents) {
 		this.appliedStudents = appliedStudents;
+	}
+
+	/**
+	 * @return the createdTime
+	 */
+	public String getCreatedTime() {
+		return createdTime;
+	}
+
+	/**
+	 * @param createdTime the createdTime to set
+	 */
+	public void setCreatedTime(String createdTime) {
+		this.createdTime = createdTime;
 	}
 
 	@Override

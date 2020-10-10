@@ -12,14 +12,14 @@
 <title>Degree Form</title>
 
 <!-- Custom fonts for this template-->
-<link href="../static/admin/vendor/fontawesome-free/css/all.min.css"
+<link href="/static/admin/vendor/fontawesome-free/css/all.min.css"
 	rel="stylesheet" type="text/css">
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
 
 <!-- Custom styles for this template-->
-<link href="../static/admin/css/sb-admin-2.min.css" rel="stylesheet">
+<link href="/static/admin/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 <body>
@@ -52,20 +52,27 @@
 					<i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span>
 			</a></li>
 			<li class="nav-item"><a class="nav-link"
-				href="/admin/degree_list"> <i
+				href="/degrees/add"> <i
 					class="fas fa-fw fa-tachometer-alt"></i> <span>Add Degrees</span></a></li>
 			<li class="nav-item"><a class="nav-link"
-				href="/admin/degree_table"> <i
+				href="/degrees"> <i
 					class="fas fa-fw fa-tachometer-alt"></i> <span>List Degrees</span></a>
 			</li>
 			<li class="nav-item"><a class="nav-link"
-				href="/admin/event_list"> <i class="fas fa-fw fa-tachometer-alt"></i>
+				href="/events/add"> <i class="fas fa-fw fa-tachometer-alt"></i>
 					<span>Add Events</span></a></li>
 			<li class="nav-item"><a class="nav-link"
-				href="/admin/event_table"> <i
+				href="/events"> <i
 					class="fas fa-fw fa-tachometer-alt"></i> <span>List Events</span></a></li>
 			</li>
-
+			<li class="nav-item"><a class="nav-link"
+				href="/universities/add"> <i class="fas fa-fw fa-tachometer-alt"></i>
+					<span>Add Universities</span></a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="/universities"> <i
+					class="fas fa-fw fa-tachometer-alt"></i> <span>List Universities</span></a></li>
+			</li>
+			
 			<!-- Divider -->
 			<hr class="sidebar-divider d-none d-md-block">
 
@@ -290,7 +297,7 @@
 					</div>
 					
 					<div th:if="${error_message != null}" class="mb-2 row">
-						<div class="alert alert-error col" role="alert" th:text="${error_message}"></div>
+						<div class="alert alert-danger col" role="alert" th:text="${error_message}"></div>
 					</div>
 
 					<!-- Page Heading -->
@@ -395,23 +402,23 @@
 	</div>
 
 	<!-- Bootstrap core JavaScript-->
-	<script src="../adminAssets/vendor/jquery/jquery.min.js"></script>
+	<script src="/static/admin/vendor/jquery/jquery.min.js"></script>
 	<script
-		src="../adminAssets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		src="/static/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 	<!-- Core plugin JavaScript-->
-	<script src="../adminAssets/vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="/static/admin/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 	<!-- Custom scripts for all pages-->
-	<script src="../adminAssets/js/sb-admin-2.min.js"></script>
+	<script src="/static/admin/js/sb-admin-2.min.js"></script>
 
 	<!-- Page level plugins -->
-	<script src="../adminAssets/vendor/datatables/jquery.dataTables.min.js"></script>
+	<script src="/static/admin/vendor/datatables/jquery.dataTables.min.js"></script>
 	<script
-		src="../adminAssets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+		src="/static/admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
 	<!-- Page level custom scripts -->
-	<script src="../adminAssets/js/demo/datatables-demo.js"></script>
+	<script src="/static/admin/js/demo/datatables-demo.js"></script>
 
 
 </body>

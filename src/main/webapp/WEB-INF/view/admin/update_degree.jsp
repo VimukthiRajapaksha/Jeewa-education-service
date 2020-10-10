@@ -285,8 +285,12 @@
 
 				<!-- Begin Page Content -->
 				<div class="container-fluid">
-					<div th:if="${message != null}" class="mb-2">
-						<div class="alert alert-primary" role="alert" th:text="${message}"></div>
+					<div th:if="${success_message != null}" class="mb-2 row">
+						<div class="alert alert-success col" role="alert" th:text="${success_message}"></div>
+					</div>
+					
+					<div th:if="${error_message != null}" class="mb-2 row">
+						<div class="alert alert-danger col" role="alert" th:text="${error_message}"></div>
 					</div>
 
 					<!-- Page Heading -->

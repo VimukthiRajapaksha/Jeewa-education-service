@@ -282,7 +282,7 @@
 			</div>
 					
 			<div th:if="${error_message != null}" class="mb-2 row">
-				<div class="alert alert-error col" role="alert" th:text="${error_message}"></div>
+				<div class="alert alert-danger col" role="alert" th:text="${error_message}"></div>
 			</div>
 
           <!-- Page Heading -->
@@ -317,10 +317,14 @@
           			<div class="card col m-3" th:each="event : ${eventList}">
             			<div class="card-img-top p-2 bg-gradient-primary" style="height: 100px; text-align:center;margin-top: auto;font-size: 50px;"><b>E</b></div>
             			<div class="card-body">
-            				<a th:href="@{'/events/'+${event.id}}">
-              					<h5 class="card-title text-center" th:text="${event.name}"></h5>
-              				</a>
+            				
+              					<h4 class="card-title text-center" th:text="${event.name}"></h4>
+              				
               				<div class="row card-text mb-2 text-muted text-center">
+              					<div class="row">
+              						<p>Host&nbsp;</p>
+              						<p th:text="${event.university.name}"></p>
+              					</div>
               					<div class="row">
               						<p>Start&nbsp;</p>
               						<p th:text="${event.startDate}"></p>

@@ -71,7 +71,8 @@ public class UniversityController {
 					.orElseThrow(() -> new Exception("University not found! ID:" + id)));
 			model.addAttribute("degreeList", this.universityService.getDegreeList(id));
 			// for events
-			model.addAttribute("eventList", this.eventService.getLatestEventsList(id, 1));
+			model.addAttribute("eventList", this.eventService.getNewEventsList(id, 1)); //change this 1 to student id
+			model.addAttribute("appliedEventList", this.eventService.getAppliedEventsList(id, 1)); //change this 1 to student id
 			model.addAttribute("student", new Student());
 			
 		} catch (Exception e) {
