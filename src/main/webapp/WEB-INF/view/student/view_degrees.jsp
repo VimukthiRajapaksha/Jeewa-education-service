@@ -296,8 +296,7 @@
               
             </div>
             <div class="card-body">
-		<div class="row p-5">
-			<div class="row row-cols-4 justify-content-around">
+				<div class="row row-cols-4 justify-content-around">
           			<div class="card col m-3" th:each="degree : ${degreeList}">
             			<div class="card-img-top p-2 bg-gradient-primary" style="height: 100px; text-align:center;margin-top: auto;font-size: 50px;"><b>D</b></div>
             			<div class="card-body">
@@ -311,7 +310,6 @@
             			</div>
           			</div>
         		</div>
-		</div>
             </div>
           </div>
 

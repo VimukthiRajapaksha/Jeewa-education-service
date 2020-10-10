@@ -319,27 +319,27 @@
 
 					<!-- Page Body Start-->
 					<div class="container-fluid">
-
-							<div class="row p-3 m-3">
+						<div class="container">
+							<div class="row p-4 mr-4">
 								<div class="col">
 									<div class="row">
 										<h3 style="font-size: 50px;" th:text="${university.name}"></h3>
 									</div>
-									<div class="row p-3">
+									<div class="row">
 										<p th:text="${university.description}"></p>
 									</div>
 								</div>
 								<div class="col">
-									<div class="row p-3"></div>
-									<div class="row p-3 mr-3">
+									<div class="row"></div>
+									<div class="row">
 										<img th:src="@{'data:image/png;base64,'+${university.image}}"
 											height="250" width="500" />
 									</div>
 								</div>
 							</div>
+						</div>
 
-
-						<div class="border rounded">
+						<div class="border rounded mt-2">
 							<div class="row p-3">
 								<div class="col">
 									<h4>Degree Programs</h4>

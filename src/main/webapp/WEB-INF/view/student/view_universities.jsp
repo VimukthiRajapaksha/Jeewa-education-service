@@ -275,7 +275,23 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">University Details</h6>
+              <div class="row w-100">
+			<div class="col-8">
+				<h6 class="mt-2 font-weight-bold text-primary">University Details</h6>
+			</div>
+			<div class="col d-flex">
+				<form th:action="@{/universities}" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            		<div class="input-group">
+              			<input type="text" th:name="name" class="form-control bg-light border-0 small" placeholder="Search university..." aria-label="Search" aria-describedby="basic-addon2">
+              			<div class="input-group-append">
+                			<button class="btn btn-primary" type="submit">
+                  				<i class="fas fa-search fa-sm"></i>
+                			</button>
+              			</div>
+            		</div>
+          		</form>
+			</div>
+		</div>
             </div>
             <div class="card-body">
                 <div class="row row-cols-4 justify-content-around">

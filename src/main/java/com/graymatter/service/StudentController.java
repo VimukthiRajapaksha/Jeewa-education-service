@@ -37,10 +37,11 @@ public class StudentController {
 			@RequestParam(required = true) Integer studentId, Model model) {
 		if (studentService.processApplyEvent(studentId, eventId)) {
 			model.addAttribute(CommonUtil.SUCCESS_MESSAGE, "Successfully applied for the event!");
+			model.addAttribute("universityList", this.universityService.findAll());
 		} else {
 			model.addAttribute(CommonUtil.ERROR_MESSAGE, "ERROR: applying event failed!");
 		}
-		return "/students/view_universities";
+		return "/student/view_universities";
 	}
 	
 	@PostMapping
